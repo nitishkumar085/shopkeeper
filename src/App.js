@@ -8,7 +8,7 @@ import SignUp from './pages/signUp/SignUp'
 import NavBar from './components/navbar/NavBar';
 import ItemDetails from './pages/itemDetails/ItemDetails';
 
-import './app.css';
+import './shop.css';
 
 function App() {
 
