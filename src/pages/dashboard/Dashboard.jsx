@@ -9,7 +9,7 @@ import Menu from '../../components/menu/Menu'
 
 function Dashboard() {
         const dispatch = useDispatch()
-        const data = useSelector(state=>state.products.list)
+        const data = useSelector(state=>state.products)
   
     useEffect(()=>{
         axios.get("https://dummyjson.com/products?limit=100")
@@ -30,16 +30,35 @@ function Dashboard() {
         .catch((err)=>console.error(err))
     },[dispatch])
 
-    
+    const category = data.category.map((value, i)=>{
+        return(
+            <div className="products">
+            <h3>{value}</h3>
+            <div className='list'>
+            {
+               
+                data.list.filter((val)=>{return val.category === value})
+                .map((val)=>{return(<Card key={val.id}val={val}/>)})
+            }
+            </div>
+            
+        </div>
+        )
+    })
+               
   return (
     <div className='mainConatiner'>
         
         <Banner/>
         <Menu/>
-        <div className="products">
+        {
+            category
+        }
+        {/* <div className="products">
             <h3> smartphones</h3>
             <div className='list'>
             {
+               
                 data.filter((val)=>{return val.category === "smartphones"})
                 .map((val)=>{return(<Card key={val.id}val={val}/>)})
             }
@@ -236,7 +255,7 @@ function Dashboard() {
                 .map((val)=>{return(<Card key={val.id}val={val}/>)})
             }
             </div>
-        </div>
+        </div> */}
        
     </div>
   )

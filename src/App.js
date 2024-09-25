@@ -1,14 +1,14 @@
 
-
-
-
 import { Route, Routes } from 'react-router-dom';
+
 import Dashboard from './pages/dashboard/Dashboard';
 import CheckOut from './pages/checkout/CheckOut';
 import Login from './pages/login/Login'
 import SignUp from './pages/signUp/SignUp'
 import NavBar from './components/navbar/NavBar';
 import ItemDetails from './pages/itemDetails/ItemDetails';
+
+import './app.css';
 
 function App() {
 
